@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     const token = localStorage.getItem("jwt");
 
     if (token && !this.jwtHelper.isTokenExpired(token)){
+      console.log(this.jwtHelper.decodeToken(token));
       return true;
     }
 
