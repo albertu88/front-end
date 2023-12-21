@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from "@auth0/angular-jwt";
 
-export function tokenGetter(){
+export function getToken(){
   return localStorage.getItem("jwt");
 }
 
@@ -28,8 +28,8 @@ export function tokenGetter(){
     FormsModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: tokenGetter,
-        allowedDomains: ["https://localhost:7090/"],
+        tokenGetter: getToken,
+        allowedDomains: ["localhost:7090"],
         disallowedRoutes: []
       }
     })

@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     console.log(a);
   }
 
-  isUserAuthenticated = (): boolean => {
+  isUserAuthenticated(): boolean{
     const token = localStorage.getItem("jwt");
 
     if (token && !this.jwtHelper.isTokenExpired(token)){
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     return false;
   }
 
-  logOut = () => {
+  logOut(){
   localStorage.removeItem("jwt");
 
   }

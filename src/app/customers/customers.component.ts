@@ -1,3 +1,4 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
-  constructor(){}
+  costumers: any;
+
+  constructor(private http: HttpClient){}
   
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.http.get("https://localhost:7090/api/Customers")
+    .subscribe({
+      next: (result: any) => this.costumers = result,
+      error: (err: HttpErrorResponse) => console.log(err)
+    })
+
+  }
 
 }
