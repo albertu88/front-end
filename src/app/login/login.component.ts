@@ -31,8 +31,12 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("jwt", token);
           this.invalidLogin = false;
           this.router.navigate(["/"]);
+          console.log("successfully logged in");
         },
-        error: (err: HttpErrorResponse) => this.invalidLogin = true
+        error: (err: HttpErrorResponse) => {
+          this.invalidLogin = true;
+          console.log("ERROR trying to log in" + err);
+        }
       })
     }
   }
