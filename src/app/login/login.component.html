@@ -1,0 +1,15 @@
+<p>login works!</p>
+<div>
+    <form #loginForm ="ngForm" (ngSubmit)="login(loginForm)">
+        <h2>Login</h2>
+        <div *ngIf="invalidLogin">Invalid username or password.</div>
+        <br/>
+        <label for ="username">Email Adress</label>
+        <input type="email" id="username" name ="username" [(ngModel)]="credentials.username" class="form-control" placeholder="Password" requeried>
+        <br/>
+        <label for ="password">Password</label>
+        <input type="password" id="password" name ="password" [(ngModel)]="credentials.password" class="form-control" placeholder="Password" requeried>
+        <br/>
+        <button class="btn btn-lg btn-primary" type="submit" [disabled]="!loginForm.valid">Log in</button>
+    </form>
+</div>
